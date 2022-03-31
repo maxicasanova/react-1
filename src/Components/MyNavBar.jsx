@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
+import CartWidget from './CartWidget';
 
 export default function MyNavBar() {
     return (
@@ -19,6 +20,7 @@ export default function MyNavBar() {
                     <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                     </NavDropdown>
                 </Nav>
+                <CartWidget />
                 </Navbar.Collapse>
             </Container>
         </Navbar>

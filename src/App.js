@@ -1,5 +1,7 @@
 import './App.css';
 import MyNavBar from './Components/MyNavBar';
+// import ClickCounter from './Components/MyContainer';
+import ItemListContainer from './Components/ItemListContainer';
 
 function App() {
   return (
@@ -7,6 +9,8 @@ function App() {
       <header>
         <MyNavBar />
       </header>
+        <ItemListContainer name="Romina" />
+        {/* <ClickCounter /> */}
     </div>
   );
 }
