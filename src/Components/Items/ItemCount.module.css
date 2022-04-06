@@ -1,0 +1,12 @@
+.botonera{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+
+.btnCarrito{
+    background-color:rgb(156, 130, 87) !important;
+    border-color: rgb(90, 75, 51) !important;
+}

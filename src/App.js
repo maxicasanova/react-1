@@ -1,15 +1,16 @@
 import './App.css';
-import MyNavBar from './Components/MyNavBar';
-import ItemListContainer from './Components/ItemListContainer';
+import MyNavBar from './Components/NavBar/MyNavBar';
+import ItemListContainer from './Components/Items/ItemListContainer';
 
 function App() {
   return (
-    <div>
-      <header>
+      <>
+        <header>
         <MyNavBar />
-      </header>
-      <ItemListContainer name="Romina" />
-    </div>
+        </header>
+        <ItemListContainer />
+      </>
+      
   );
 }
 
