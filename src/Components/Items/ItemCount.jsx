@@ -24,11 +24,13 @@ function ItemCount({stock,initial}) {
   return (
     <>
       <div className={s.botonera}>
-        <Button variant="secondary" onClick={restar}>-</Button>
-        <h2>{count}</h2>
-        <Button variant="secondary" onClick={sumar}>+</Button>
+        <div>
+          <Button variant="secondary" onClick={restar}>-</Button>
+          <h2>{count}</h2>
+          <Button variant="secondary" onClick={sumar}>+</Button>
+        </div>
+        <Button variant="success" onClick={onAdd} className={s.btnCarrito}>Agregar al Carrito</Button>
       </div>
-      <Button variant="success" onClick={onAdd} className={s.btnCarrito}>Agregar al Carrito</Button>
     </>
   );
 };

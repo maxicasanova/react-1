@@ -1,0 +1,39 @@
+.detalleProd{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+}
+
+.detalleProd img{
+    border-radius: 20px;
+    height: 400px;
+    border: 1px solid black;
+}
+
+.detalleProd aside.descripcion{
+    text-align: right;
+    padding-right: 10px;
+    border-right: 3px solid rgb(161, 121, 51);
+}
+
+.selectColores {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+aside.fotitos{
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    gap: 10px;
+}
+
+aside.fotitos img{
+    height: 50px;
+}

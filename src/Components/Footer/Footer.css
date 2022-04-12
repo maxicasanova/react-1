@@ -1,0 +1,13 @@
+footer{
+    text-align: center;
+    border-top: 1px solid rgb(161, 121, 51);
+    background-color:rgb(255, 248, 239);
+}
+
+p{
+    color: grey;
+}
+
+footer img{
+    height:30px;
+}
