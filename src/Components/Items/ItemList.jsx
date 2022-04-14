@@ -1,16 +1,16 @@
 import React from 'react'
+import { Spinner } from 'react-bootstrap'
 import Item from './Item'
 
-function ItemList({productos}) {
+function ItemList({productos, spinner}) {
     return (
+        <>
+        {spinner && (<div className='spinner'><Spinner animation='border' /><p>Cargando...</p></div>)}
+        {!spinner && (
             productos.map(e => (
-            <Item key={e.id}
-            stock={e.stock} 
-            initial={e.initial} 
-            id={e.id}
-            imagen = {e.imagen}
-            />
-            ))
+            <Item key={e.id} producto = {e} />
+            )))}
+        </>
     )
 }
 

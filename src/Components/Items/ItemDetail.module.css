@@ -1,3 +1,10 @@
+.spinner{
+    min-height: 63vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .detalleProd{
     display: flex;
     flex-wrap: nowrap;

@@ -2,6 +2,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    align-items: center;
     background-color:antiquewhite;
+    min-height: 67vh;
     padding:20px;
 }

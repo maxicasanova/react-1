@@ -5,4 +5,14 @@
     gap: '10px';
     border-radius: 20px;
     padding-top: 20px;
+    margin: 5px;
+}
+
+.tarjeta img{
+    height: 200px;
+}
+
+div.categories{
+    display: flex;
+    gap: 3px;
 }

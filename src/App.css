@@ -2,3 +2,16 @@
   text-align: center;
 }
 
+a{
+  text-decoration: none!important;
+  color: black;
+}
+
+a:visited{
+  text-decoration: none!important;
+}
+
+a:hover{
+  color: grey;
+}
+
