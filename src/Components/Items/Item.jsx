@@ -7,10 +7,9 @@ import { Link } from 'react-router-dom';
 import s from './Item.module.css';
 
 function Item({producto}) {
-    const objetivo = `/item/${producto.id}`
     return (
         <>
-        <Link to={objetivo}>
+        <Link to={`/item/${producto.id}`}>
         <Card className={s.tarjeta}>
             <Card.Img variant="top" src={producto.imagen} />
             <Card.Body>

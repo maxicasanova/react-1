@@ -12,7 +12,7 @@ export default function ItemDetailContainer() {
     useEffect(() =>{
         customFetch(2000, listaProductos)
         .then(res =>{
-            setDetalle(res.find(i => i.id == itemId));
+            setDetalle(res.find(i => i.id === Number(itemId)));
             setSpinner(false);
         })
         .catch(err => console.log(err))

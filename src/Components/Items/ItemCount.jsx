@@ -2,8 +2,12 @@ import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import s from './ItemCount.module.css'
 
-function ItemCount({stock,initial}) {
+function ItemCount({stock,initial,addToCart}) {
   const [count, setCount] = useState(initial);
+
+  const handleClick = () =>{
+    addToCart(count)
+  }
 
   function sumar(){
     if(count < stock){
@@ -17,19 +21,15 @@ function ItemCount({stock,initial}) {
     }
   }
 
-  function onAdd(){
-    alert('Compraste ' + count + ' Item1')
-  }
-
   return (
     <>
       <div className={s.botonera}>
         <div>
-          <Button variant="secondary" onClick={restar}>-</Button>
+          <Button variant="secondary" disabled={count === initial} onClick={restar}>-</Button>
           <h2>{count}</h2>
-          <Button variant="secondary" onClick={sumar}>+</Button>
+          <Button variant="secondary" disabled={count === stock} onClick={sumar}>+</Button>
         </div>
-        <Button variant="success" onClick={onAdd} className={s.btnCarrito}>Agregar al Carrito</Button>
+        <Button variant="success" onClick={handleClick} className={s.btnCarrito}>Agregar al Carrito</Button>
       </div>
     </>
   );
