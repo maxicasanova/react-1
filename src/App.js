@@ -6,11 +6,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from './Components/Footer/Footer';
 import SobreMi from './Components/sobreMi/SobreMi';
 import Cart from './Components/Cart/Cart'
-// import Prueba1 from './Components/pruebas/Prueba1';
+import CartContextProvider from './Components/Context/CartContextProvider';
 
 function App() {
   return (
       <>
+      <CartContextProvider>
         <BrowserRouter>
           <MyNavBar />
           <Routes>
@@ -19,10 +20,10 @@ function App() {
             <Route exact path="/item/:itemId" element={<ItemDetailContainer />} />
             <Route exact path="/sobreMi" element={<SobreMi />} />
             <Route exact path="/cart" element={<Cart />} />
-            {/* <Prueba1 /> */}
           </Routes>
-        <Footer />
+          <Footer />
         </BrowserRouter>
+      </CartContextProvider>
       </>
   );
 }

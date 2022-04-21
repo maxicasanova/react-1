@@ -1,23 +1,19 @@
 import React, { useState } from 'react';
-import { Button, Spinner } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import ItemCount from './ItemCount';
 import s from './ItemDetail.module.css';
+import ThreeDots from '../Loading/ThreeDots';
 
 const ItemDetail = ({producto, spinner}) => {
 
-    const [cantCarrito, setCantCarrito] = useState(0)
-
-    const addToCart = (numero) =>{
-        setCantCarrito(numero);
-    }
+    const [agregado, setAgregado] = useState(false);
 
     return (
         <>
         {spinner ? 
             <div className={s.spinner}>
-                <Spinner animation='border' />
-                <p>Cargando...</p>
+                <ThreeDots />
             </div> :
         <div className={s.detalleProd}>
             <aside className={s.fotitos}>
@@ -36,13 +32,13 @@ const ItemDetail = ({producto, spinner}) => {
                     <input type="radio" name="colores" id="natural" />Natural
                     <input type="radio" name="colores" id="negro" />Negro
                 </div>
-                {cantCarrito > 0 ?
+                {agregado ?
                     <div>
-                        <p>Agregaste {cantCarrito} {producto.nombre} al carrito.</p>
+                        <p>Agregaste {producto.nombre} al carrito.</p>
                         <Button variant='success'><Link to={'/cart'}>Ir al Carrito</Link></Button>
                         <Button variant='secondary'><Link to={'/'}>Seguir Comprando</Link></Button>
                     </div> :
-                    <ItemCount stock={producto.stock} initial={1} addToCart={addToCart} />
+                    <ItemCount producto={producto} initial={1} setAgregado={setAgregado} />
                 }
                 
             </aside>

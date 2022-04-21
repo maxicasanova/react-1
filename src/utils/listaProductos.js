@@ -75,3 +75,5 @@ export default listaProductos
 
 export const categories= ['Kids','Tapiz','Posavasos','Mesa'];
 
+//hacer una funcion que tome las categorias.
+

@@ -17,16 +17,16 @@ export default function ItemListContainer() {
             if(categoryId){
                 let filtered = res.filter(function(f){
                     for (const cat of f.categorias) {
-                        if (cat == categoryId) return cat;
+                        if (cat === categoryId) return cat;
                     }
                 })
                 setProductos(filtered);
             } else {
                 setProductos(res);
             }
-            setSpinner(false);
         })
         .catch(err => console.log(err))
+        .finally(() => setSpinner(false))
     },[categoryId])
 
     return (
