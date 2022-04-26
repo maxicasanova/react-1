@@ -11,7 +11,7 @@ export default function ItemDetailContainer() {
 
     useEffect(() =>{
         setSpinner(true);
-        customFetch(2000, listaProductos)
+        customFetch(1500, listaProductos)
         .then(res =>{
             setDetalle(res.find(i => i.id === Number(itemId)));
         })

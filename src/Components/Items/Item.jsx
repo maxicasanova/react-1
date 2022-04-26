@@ -3,7 +3,6 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-// import ItemCount from './ItemCount';
 import s from './Item.module.css';
 
 function Item({producto}) {
@@ -20,7 +19,6 @@ function Item({producto}) {
                 ))}
             </div>
             <Card.Text> Alguna descripcion del item{producto.id} </Card.Text>
-            {/* <ItemCount stock={producto.stock} initial={producto.initial}/> */}
             <Card.Text> Disponibles: {producto.stock} </Card.Text>
             </Card.Body>
             </Card>

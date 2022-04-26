@@ -1,14 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useContext} from 'react';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import ItemCount from './ItemCount';
 import s from './ItemDetail.module.css';
 import ThreeDots from '../Loading/ThreeDots';
+import { CartContext } from '../Context/CartContextProvider';
 
 const ItemDetail = ({producto, spinner}) => {
 
-    const [agregado, setAgregado] = useState(false);
+    const {agregado} = useContext(CartContext);
 
+    const {setAgregado} = useContext(CartContext);
+
+    useEffect(() => {
+        setAgregado(false);
+    }, [])
+    
     return (
         <>
         {spinner ? 
@@ -38,7 +45,7 @@ const ItemDetail = ({producto, spinner}) => {
                         <Button variant='success'><Link to={'/cart'}>Ir al Carrito</Link></Button>
                         <Button variant='secondary'><Link to={'/'}>Seguir Comprando</Link></Button>
                     </div> :
-                    <ItemCount producto={producto} initial={1} setAgregado={setAgregado} />
+                    <ItemCount producto={producto} initial={1} carrito={false} />
                 }
                 
             </aside>

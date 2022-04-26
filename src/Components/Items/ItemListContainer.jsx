@@ -12,7 +12,7 @@ export default function ItemListContainer() {
 
     useEffect(() =>{
         setSpinner(true);
-        customFetch(3000, listaProductos)
+        customFetch(1500, listaProductos)
         .then(res => {
             if(categoryId){
                 let filtered = res.filter(function(f){

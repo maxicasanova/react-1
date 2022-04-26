@@ -1,7 +1,6 @@
-import React from 'react'
-import { Spinner } from 'react-bootstrap'
-import ThreeDots from '../Loading/ThreeDots'
-import Item from './Item'
+import React from 'react';
+import ThreeDots from '../Loading/ThreeDots';
+import Item from './Item';
 
 function ItemList({productos, spinner}) {
     return (
