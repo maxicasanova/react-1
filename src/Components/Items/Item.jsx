@@ -6,11 +6,12 @@ import { Link } from 'react-router-dom';
 import s from './Item.module.css';
 
 function Item({producto}) {
+    console.log(producto.imagenes)
     return (
         <>
         <Link to={`/item/${producto.id}`}>
         <Card className={s.tarjeta}>
-            <Card.Img variant="top" src={producto.imagen} />
+            <Card.Img variant="top" src={producto.imagenes[0]} />
             <Card.Body>
             <Card.Title>{producto.nombre}</Card.Title>
             <div className={s.categories}>
@@ -18,7 +19,7 @@ function Item({producto}) {
                     <Card.Subtitle key={index}>#{c}</Card.Subtitle>
                 ))}
             </div>
-            <Card.Text> Alguna descripcion del item{producto.id} </Card.Text>
+            <Card.Text>${producto.precio} </Card.Text>
             <Card.Text> Disponibles: {producto.stock} </Card.Text>
             </Card.Body>
             </Card>

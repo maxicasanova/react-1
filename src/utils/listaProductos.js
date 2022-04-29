@@ -36,7 +36,7 @@ const listaProductos = [
         precio:300,
         stock:4,
         initial:1,
-        imagen:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxjWLGHRDClVO50V3u9AeM8AnvHaWXTsxkh3rdgPFbzDZdktjKXG-eTA6hU9AK9XEKJLo&usqp=CAU',
+        imagen:'https://firebasestorage.googleapis.com/v0/b/proyectoreactmax.appspot.com/o/Imagenes%20productos%2FposavasoClasico2.jpg?alt=media&token=06cc933b-dc11-4a79-a071-c375f2c2d043',
         categorias:['Posavasos','Mesa']
     },
     {
@@ -73,7 +73,7 @@ const listaProductos = [
 
 export default listaProductos
 
-export const categories= ['Kids','Tapiz','Posavasos','Mesa'];
+export const categories= ['Kids','Tapices','Posavasos','Mesa'];
 
 //hacer una funcion que tome las categorias.
 

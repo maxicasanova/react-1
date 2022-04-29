@@ -24,11 +24,11 @@ const ItemDetail = ({producto, spinner}) => {
             </div> :
         <div className={s.detalleProd}>
             <aside className={s.fotitos}>
-                <img src={producto.imagen} alt="" />
-                <img src={producto.imagen} alt="" />
-                <img src={producto.imagen} alt="" />
+                <img src={producto.imagenes[0]} alt="" />
+                <img src={producto.imagenes[1]} alt="" />
+                <img src={producto.imagenes[1]} alt="" />
             </aside>
-            <img src={producto.imagen}></img>
+            <img src={producto.imagenes[0]}></img>
             <aside className={s.descripcion}>
                 <h1>{producto.nombre}</h1>
                 <p>{producto.descripcion}</p>

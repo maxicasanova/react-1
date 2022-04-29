@@ -13,7 +13,7 @@ function CartItem({producto}) {
     return (
         <Card className={s.tarjetaCarrito}>
             <Link to ={`/item/${producto.id}`}>
-                <Card.Img src={producto.imagen} />
+                <Card.Img src={producto.imagenes[0]} />
             </Link>
             <Card.Body>
             <Card.Title>{producto.nombre}</Card.Title>

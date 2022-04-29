@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import customFetch from '../../utils/customFetch';
-import listaProductos from '../../utils/listaProductos';
+import { collection, doc, getDoc, getDocs, getFirestore } from 'firebase/firestore';
+// import customFetch from '../../utils/customFetch';
+// import listaProductos from '../../utils/listaProductos';
 import ItemDetail from './ItemDetail'
 
 export default function ItemDetailContainer() {
@@ -11,13 +12,27 @@ export default function ItemDetailContainer() {
 
     useEffect(() =>{
         setSpinner(true);
-        customFetch(1500, listaProductos)
-        .then(res =>{
-            setDetalle(res.find(i => i.id === Number(itemId)));
+        const db = getFirestore();
+        const itemRef = doc(db, 'Productos', itemId);
+
+        getDoc(itemRef)
+        .then((res) => {
+            if (res.exists()) {
+                setDetalle({id: res.id, ...res.data()});
+            }
+            setSpinner(false);
         })
-        .catch(err => console.log(err))
-        .finally(() => setSpinner(false))
-    },[detalle,itemId])
+    },[itemId])
+
+    // useEffect(() =>{
+    //     setSpinner(true);
+    //     customFetch(1500, listaProductos)
+    //     .then(res =>{
+    //         setDetalle(res.find(i => i.id === Number(itemId)));
+    //     })
+    //     .catch(err => console.log(err))
+    //     .finally(() => setSpinner(false))
+    // },[detalle,itemId])
 
     return (
         <>

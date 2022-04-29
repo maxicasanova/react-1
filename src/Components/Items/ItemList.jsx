@@ -3,6 +3,7 @@ import ThreeDots from '../Loading/ThreeDots';
 import Item from './Item';
 
 function ItemList({productos, spinner}) {
+    console.log(productos)
     return (
         <>
         {spinner && (<ThreeDots />)}
