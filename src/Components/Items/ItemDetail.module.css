@@ -27,12 +27,6 @@
     border-right: 3px solid rgb(161, 121, 51);
 }
 
-.selectColores {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
 aside.fotitos{
     height: 400px;
     display: flex;
@@ -43,4 +37,9 @@ aside.fotitos{
 
 aside.fotitos img{
     height: 50px;
+}
+
+aside.fotitos img:hover{
+    border: 2px solid rgb(79, 52, 24);
+    transform:scale(1.15);
 }

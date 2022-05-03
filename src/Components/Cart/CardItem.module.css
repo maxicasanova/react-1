@@ -1,5 +1,5 @@
 .tarjetaCarrito{
-    height: 25vh;
+    height: 20vh;
     width:100%;
     display:flex;
     flex-direction: row;
@@ -9,14 +9,16 @@
 }
 
 .tarjetaCarrito img{
-    /* width: 150px; */
-    height:130px;
+    border-radius: 3px;
+    height:100px;
 }
 
-.tarjetaCarrito div.card-body{
+.bodyTarjeta{
     display:flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    gap: 10px;
+    align-items: center;
 }
 
 .redCross{

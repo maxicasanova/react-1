@@ -1,4 +1,4 @@
-import React, { useEffect, useContext} from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import ItemCount from './ItemCount';
@@ -12,6 +12,12 @@ const ItemDetail = ({producto, spinner}) => {
 
     const {setAgregado} = useContext(CartContext);
 
+    const [imgPrinc, setImgPrinc] = useState('');
+
+    const handleClick = (index) => {
+        setImgPrinc(producto.imagenes[index]);
+    }
+
     useEffect(() => {
         setAgregado(false);
     }, [])
@@ -24,21 +30,17 @@ const ItemDetail = ({producto, spinner}) => {
             </div> :
         <div className={s.detalleProd}>
             <aside className={s.fotitos}>
-                <img src={producto.imagenes[0]} alt="" />
-                <img src={producto.imagenes[1]} alt="" />
-                <img src={producto.imagenes[1]} alt="" />
+                <img src={producto.imagenes[0]} onMouseOver={() => handleClick(0)} alt="" />
+                <img src={producto.imagenes[1]} onMouseOver={() => handleClick(1)} alt="" />
+                {producto.imagenes[2] && <img src={producto.imagenes[2]} onMouseOver={() => handleClick(2)} alt="" />}
+                {producto.imagenes[3] && <img src={producto.imagenes[3]} onMouseOver={() => handleClick(3)} alt="" />}
             </aside>
-            <img src={producto.imagenes[0]}></img>
+            <img src={imgPrinc || producto.imagenes[0]}></img>
             <aside className={s.descripcion}>
                 <h1>{producto.nombre}</h1>
                 <p>{producto.descripcion}</p>
                 <p>${producto.precio} </p>
                 <p>Disponible: {producto.stock}</p>
-                <div className={s.selectColores}>
-                    <input type="radio" name="colores" id="rojo" />Rojo
-                    <input type="radio" name="colores" id="natural" />Natural
-                    <input type="radio" name="colores" id="negro" />Negro
-                </div>
                 {agregado ?
                     <div>
                         <p>Agregaste {producto.nombre} al carrito.</p>

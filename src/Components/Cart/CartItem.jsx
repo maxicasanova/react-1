@@ -15,7 +15,7 @@ function CartItem({producto}) {
             <Link to ={`/item/${producto.id}`}>
                 <Card.Img src={producto.imagenes[0]} />
             </Link>
-            <Card.Body>
+            <Card.Body className={s.bodyTarjeta}>
             <Card.Title>{producto.nombre}</Card.Title>
             <ItemCount producto={producto} initial={producto.count} carrito={true} className={s.botoneraCarrito} />
             <span onClick={() => {removeFromCart(producto)}} className={s.redCross}>&#x2717;</span>

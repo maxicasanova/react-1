@@ -22,7 +22,7 @@ export default function MyNavBar() {
                         ))}
                         </ul>
                     </NavDropdown>
-                </Nav>
+                    </Nav>
                 <CartWidget />
                 </Navbar.Collapse>
             </Container>

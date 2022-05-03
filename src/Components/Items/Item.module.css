@@ -1,18 +1,56 @@
 .tarjeta{
-    width: '12rem'; 
-    display: 'flex'; 
-    flex-direction: 'column'; 
-    gap: '10px';
+    min-width: 15vw;
+    min-height: 30vw;
+    max-width: 25px;
     border-radius: 20px;
     padding-top: 20px;
     margin: 5px;
 }
 
 .tarjeta img{
-    height: 200px;
+    max-height: 200px;
+    max-width: 200px;
+}
+
+.cuerpoTarjeta{
+    display:flex;
+    flex-direction:column;
+    justify-content: space-evenly;
+    align-items: baseline;
+}
+
+.cuerpoTarjeta p{
+    margin: 0!important;
 }
 
 div.categories{
+    color: rgb(99, 70, 46);
+    text-decoration: underline;
     display: flex;
     gap: 3px;
 }
+
+.precioTachado{
+    text-decoration: line-through;
+    display:inline-block;
+}
+
+.precioOferta{
+    background-color: rgb(120, 86, 58);
+    border-radius:3px;
+    color: white;
+    padding:1px 2px;
+    margin-left: 5px;
+}
+
+.destacado{
+    z-index:20;
+    position:absolute;
+    top: 5px;
+    right: 5px;
+    background-color: rgb(120, 86, 58);
+    border-radius:3px;
+    color: white;
+    padding: 2px;
+}
+

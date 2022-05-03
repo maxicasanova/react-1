@@ -5,6 +5,7 @@ import TotalCarrito from './TotalCarrito';
 import './Cart.css'
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import OrderForm from '../Forms/OrderForm';
 
 function Cart() {
 
@@ -25,6 +26,7 @@ function Cart() {
             }
             <TotalCarrito cart={cart}/>
         </div>
+        
     )
 }
 

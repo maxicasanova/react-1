@@ -7,6 +7,8 @@ function CartContextProvider ({children}) {
 
     const [cart, setCart] = useState([]);
 
+    const [totalCarrito, setTotalCarrito] = useState(0);
+
     const [carritoCambiado, setCarritoCambiado] = useState(false);
 
     const [agregado, setAgregado] = useState(false);
@@ -36,7 +38,7 @@ function CartContextProvider ({children}) {
     };
 
     return (
-        <CartContext.Provider value={{cart, addToCart, removeFromCart, clearCart, isInCart, modifyCart, agregado, setAgregado, carritoCambiado, setCarritoCambiado}}>
+        <CartContext.Provider value={{cart, addToCart, removeFromCart, clearCart, isInCart, modifyCart, agregado, setAgregado, carritoCambiado, setCarritoCambiado, totalCarrito, setTotalCarrito}}>
             {children}
         </CartContext.Provider>
     )

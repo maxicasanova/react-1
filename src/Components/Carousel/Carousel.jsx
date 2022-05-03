@@ -45,7 +45,7 @@ const Carousel = ({productos, categoryId ,show, spinner}) => {
                 </div>
             </div>
         </div>
-    )
+        )
 }
 
 export default Carousel

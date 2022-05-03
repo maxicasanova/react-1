@@ -1,36 +1,43 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom'
-// import customFetch from '../../utils/customFetch';
-// import listaProductos from '../../utils/listaProductos';
+import { getFirestore, query, where, collection } from 'firebase/firestore';
+import buscarFirebase from '../../utils/buscarFirebase';
 import Carousel from './Carousel';
+import ThreeDots from '../Loading/ThreeDots';
 
-export default function CarouselContainer({categoryId}) {
+export default function CarouselContainer({resaltar}) {
     const [productos , setProductos] = useState([]);
     const [spinner, setSpinner] = useState(true);
+    const width = window.innerWidth;
+    let show = 0;
 
-    // useEffect(() =>{
-    //     setSpinner(true);
-    //     customFetch(1500, listaProductos)
-    //     .then(res => {
-    //         if(categoryId){
-    //             let filtered = res.filter(function(f){
-    //                 for (const cat of f.categorias) {
-    //                     if (cat === categoryId) return cat;
-    //                 }
-    //             })
-    //             setProductos(filtered);
-    //         } else {
-    //             setProductos(res);
-    //             // evaluar un array vacio.
-    //         }
-    //     })
-    //     .catch(err => console.log(err))
-    //     .finally(() => setSpinner(false))
-    // },[])
+    if (width < 560) {
+        show = 1;
+    } else if (width < 768){
+        show = 2;
+    } else if (width < 1200){
+        show = 3;
+    } else{
+        show = 4;
+    }
+
+    useEffect(() => {
+        setSpinner(true);
+        const db = getFirestore();
+        const productsCollection = collection(db, 'Productos');
+        const q = query(productsCollection, where(resaltar, '==', true));
+        buscarFirebase(q, setProductos);
+        setSpinner(false);
+    },[]);
 
     return(
         <>
-        <Carousel productos={productos} categoryId={categoryId} show={4} spinner = {spinner} />
+        {spinner && <ThreeDots />}
+        {!spinner && (
+            <div>
+                <h2 className='titulo-carousel'>{(resaltar === 'destacado') ? 'Productos Destacados' : 'Productos en Oferta'}</h2>
+                <Carousel productos={productos} resaltar={resaltar} show={show} spinner={spinner} />
+            </div>
+        )}
         </>
     )
 }

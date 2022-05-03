@@ -77,3 +77,6 @@ export const categories= ['Kids','Tapices','Posavasos','Mesa'];
 
 //hacer una funcion que tome las categorias.
 
+
+
+

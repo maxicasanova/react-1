@@ -23,17 +23,7 @@ export default function ItemDetailContainer() {
             setSpinner(false);
         })
     },[itemId])
-
-    // useEffect(() =>{
-    //     setSpinner(true);
-    //     customFetch(1500, listaProductos)
-    //     .then(res =>{
-    //         setDetalle(res.find(i => i.id === Number(itemId)));
-    //     })
-    //     .catch(err => console.log(err))
-    //     .finally(() => setSpinner(false))
-    // },[detalle,itemId])
-
+    
     return (
         <>
             <ItemDetail producto={detalle} spinner={spinner} />
