@@ -1,5 +1,3 @@
-// En este caso al Item le saque el ItemCount para que quede mas agradable a la vista, el mismo esta colocado en el ItemDetail.
-
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';

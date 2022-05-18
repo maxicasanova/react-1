@@ -43,3 +43,23 @@ aside.fotitos img:hover{
     border: 2px solid rgb(79, 52, 24);
     transform:scale(1.15);
 }
+
+.botonesCarrito button{
+    margin: 3px;
+}
+
+@media only screen and (max-width:700px) {
+    aside.fotitos{
+        height: auto;
+        flex-direction: row;
+    }
+
+    .detalleProd{
+        flex-direction: column;
+    }
+    
+    .detalleProd img{
+        max-width: 80vw;
+        max-height: 80vw;
+    }
+}

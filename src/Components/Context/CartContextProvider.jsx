@@ -1,5 +1,4 @@
 import React, {createContext, useState} from 'react';
-import { CarouselItem } from 'react-bootstrap';
 
 export const CartContext = createContext();
 

@@ -1,13 +1,14 @@
 .tarjeta{
     min-width: 15vw;
     min-height: 30vw;
-    max-width: 25px;
+    max-width: 200px;
     border-radius: 20px;
     padding-top: 20px;
     margin: 5px;
 }
 
 .tarjeta img{
+    align-self: center;
     max-height: 200px;
     max-width: 200px;
 }

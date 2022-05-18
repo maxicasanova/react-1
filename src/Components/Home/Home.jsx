@@ -8,7 +8,6 @@ function Home() {
         <>  
             <Bienvenida />
             <CarouselContainer  resaltar='destacado'/>
-            <CarouselContainer  resaltar='oferta'/>
             <ItemListContainer />
         </>
     )

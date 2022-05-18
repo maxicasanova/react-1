@@ -1,5 +1,3 @@
-// Componente en Proceso!
-
 import React from 'react';
 import { Accordion, Card, useAccordionButton } from 'react-bootstrap';
 import { Link } from 'react-router-dom';

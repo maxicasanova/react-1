@@ -1,10 +1,10 @@
 import React, { useEffect, useContext, useState } from 'react';
 import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import ItemCount from './ItemCount';
 import s from './ItemDetail.module.css';
 import ThreeDots from '../Loading/ThreeDots';
 import { CartContext } from '../Context/CartContextProvider';
+import { useNavigate } from 'react-router-dom';
 
 const ItemDetail = ({producto, spinner}) => {
 
@@ -13,6 +13,8 @@ const ItemDetail = ({producto, spinner}) => {
     const {setAgregado} = useContext(CartContext);
 
     const [imgPrinc, setImgPrinc] = useState('');
+
+    const navigate = useNavigate();
 
     const handleClick = (index) => {
         setImgPrinc(producto.imagenes[index]);
@@ -39,13 +41,13 @@ const ItemDetail = ({producto, spinner}) => {
             <aside className={s.descripcion}>
                 <h1>{producto.nombre}</h1>
                 <p>{producto.descripcion}</p>
-                <p>${producto.precio} </p>
+                <p>${producto.oferta ? producto.precioOFerta : producto.precio} </p>
                 <p>Disponible: {producto.stock}</p>
                 {agregado ?
-                    <div>
+                    <div className={s.botonesCarrito}>
                         <p>Agregaste {producto.nombre} al carrito.</p>
-                        <Button variant='success'><Link to={'/cart'}>Ir al Carrito</Link></Button>
-                        <Button variant='secondary'><Link to={'/'}>Seguir Comprando</Link></Button>
+                        <Button variant='success' onClick={() => navigate('/cart')}>Ir al Carrito</Button>
+                        <Button variant='secondary' onClick={() => navigate('/')}>Seguir Comprando</Button>
                     </div> :
                     <ItemCount producto={producto} initial={1} carrito={false} />
                 }

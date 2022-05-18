@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Item from '../Items/Item';
 import './Carousel.css';
 
-const Carousel = ({productos, categoryId ,show, spinner}) => {
+const Carousel = ({productos,show, spinner, resaltar}) => {
 
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -40,7 +40,7 @@ const Carousel = ({productos, categoryId ,show, spinner}) => {
                         {productos.map(e => (
                             <Item key={e.id} producto = {e} />
                         ))}
-                        {!spinner && <div className='linkShowAll'><Link to={categoryId ? `/category/${categoryId}` : '/'}>Ver todos</Link></div>}
+                        {!spinner && <div className='linkShowAll'><Link to={resaltar === 'oferta' ? '/sales' : '/highlights'}>Ver todos</Link></div>}
                     </div>
                 </div>
             </div>

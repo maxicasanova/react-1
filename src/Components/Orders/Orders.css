@@ -1,0 +1,23 @@
+.orderConfirmation{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+    min-height: 70vh;
+}
+
+.orderNumber{
+    font-size: 20px;
+}
+
+.orderNumber span{
+    font-size:24px;
+    color: black!important;
+}
+
+@media only screen and (max-width:600px){
+    .orderConfirmation{
+        text-align: center;
+    }
+}

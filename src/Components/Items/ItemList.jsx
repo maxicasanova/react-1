@@ -7,7 +7,7 @@ function ItemList({productos, spinner}) {
         <>
         {spinner && (<ThreeDots />)}
         {!spinner && (
-            productos.map(e => (
+            productos.filter(p => p.stock>0).map(e => (
             <Item key={e.id} producto = {e} />
             )))}
         </>

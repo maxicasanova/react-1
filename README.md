@@ -1,19 +1,67 @@
+
 # Tienda Khipuy
 
-Este proyecto fue creado con React, utilizando las librerias de React-Bootstrap y React-Router-Dom.
+Primer proyecto realizado con React para el cursado del curso de Coderhouse. Consiste en una tienda donde se pueden realizar pedidos de productos, dejando los datos de contacto pertinentes.
 
-## Un poco sobre mi experiencia.
 
-Primer proyecto realizado con React para el cursado del curso de Coderhouse.
 
-### La tienda
+## Caracteristicas
 
-Es una pequena tienda con productos realizados en Macrame. Se puede filtrar por categorias y ademas obtener mas informacion sobre cada uno de los productos. Todo esto alimentado con un array de productos disponible en un archivo dentro de la carpeta './src/utils/'. El formato se compone de opciones propias de React-Bootstrap y partes con Css puro.
+- Carousel de productos.
+- Filtrado por categoria.
+- Vista en detalle con mas de una foto por item.
+- Productos destacados / en oferta.
 
-### Como correr el proyecto
 
- clonar, npm start para desarrollo, y despues build y  firebase deploy, 
+## Construido con 🛠️
 
- donde esta el deploy?
+* React Router Dom,
+* React Hook Form,
+* Yup,
+* Sweet Alert,
+* React Bootstrap.
+* React Content Loader
+* FireBase
 
- Ojo que utilice react bootstrap, react content loader, y posiblemnte use react hook forms
+Router Dom fue elegido como herramienta para solucionar el enrutamiento de la app.
+Hook From y Yup fueron elegidos para la validacion de formularios, era necesario asegurarse que es lo que se estaba mandando a la base de datos. 
+Sweet Alert, fue utilizado para crear una breve interfaz para interactuar con el cliente en caso de querer agregar un producto al carrito, y ademas confirmar querer cambiar la cantidad del mismo si desea agregar dos veces el mismo producto. 
+React Bootstrap fue seleccionado para dar estilos a la pagina por su sencillez. React Content Loader se utilizo para realizar una transicion de carga.
+Y por ultimo Firebase como proveedor de almacenamiento para imagenes y base de datos de productos y ordenes de compra.
+
+## Correr localmente 🔧
+
+Clona el proyecto
+
+```bash
+  git clone https://github.com/maxicasanova/react-1 my-project
+```
+
+Ir al Directorio del Proyecto
+
+```bash
+  cd my-project
+```
+
+Instalar dependencias
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm start
+```
+
+
+## Demo 📦
+
+https://proyectoreactmax.web.app/
+
+
+## Autor ✒️
+
+- [@maxicasanova](https://github.com/maxicasanova)
+

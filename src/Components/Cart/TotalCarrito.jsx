@@ -1,8 +1,7 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import './Cart.css';
 import { CartContext } from '../Context/CartContextProvider';
-// import Swal from 'sweetalert2';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
 function TotalCarrito({cart}) {
@@ -15,7 +14,7 @@ function TotalCarrito({cart}) {
 
     const {setCarritoCambiado} = useContext (CartContext);
 
-    const { clearCart } = useContext (CartContext);
+    const navigate = useNavigate();
 
     const suma = (array) =>{
         let temp = 0
@@ -28,28 +27,6 @@ function TotalCarrito({cart}) {
         }
         return temp;
     }
-
-    // const handleClick = () =>{
-    //     Swal.fire({
-    //         text: `Desea comprar todos los productos del carrito`,
-    //         icon: 'question',
-    //         showCloseButton:true,
-    //         confirmButtonText: 'Si, Adelante!',
-    //         showCancelButton:true
-    //         })
-    //         Swal.getConfirmButton().onclick = () => {
-    //             <Link to={}></Link>
-    //             Swal.update({
-    //                 text:'Felicidades termino su compra',
-    //                 icon: 'success',
-    //                 confirmButtonText: 'Hasta la vista'
-    //             })
-    //         Swal.getConfirmButton().onclick = () => {
-    //             Swal.close();
-    //             clearCart();
-    //         }
-    //     }
-    // }
 
     useEffect(() => {
         setTotalCarrito(suma(cart));
@@ -65,14 +42,14 @@ function TotalCarrito({cart}) {
                 <p>Nombre</p><p>Cantidad</p><p>Precio</p>
             </div>
             {cart.map((e) => (
-                <div className='cadaUnoTotal'>
+                <div key={e.id} className='cadaUnoTotal'>
                     <p>{e.nombre}</p><p>{e.count}</p><p> ${e.oferta ? e.precioOFerta : e.precio}</p>
                 </div>
             ))}
-            <div>   
+            <div className='textoTotalCarrito'>   
                 <h3>Total:</h3><h3> ${totalCarrito}</h3>
             </div>
-            <Button variant='secondary'><Link to='/checkout'>Finalizar Compra</Link></Button>
+            <Button variant='secondary' onClick={()=> navigate('/checkout')}>Finalizar Pedido</Button>
         </div> 
         )}
         </>

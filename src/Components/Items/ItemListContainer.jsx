@@ -5,26 +5,41 @@ import ItemList from './ItemList';
 import s from './ItemListContainer.module.css'
 import buscarFirebase from '../../utils/buscarFirebase';
 
-export default function ItemListContainer() {
+export default function ItemListContainer({filter}) {
     const [productos , setProductos] = useState([]);
     const {categoryId} = useParams();
     const [spinner, setSpinner] = useState(true);
+    const [titulo, setTitulo] = useState('');
 
+    const db = getFirestore();
+    const productsCollection = collection(db, 'Productos');
+    
     useEffect(() => {
-        const db = getFirestore();
-        const productsCollection = collection(db, 'Productos');
+        let isActive = true;
+        setSpinner(true);
+        let q = [];
+        
         if(categoryId){
-            const q = query(productsCollection, where('categorias', 'array-contains',categoryId));
-            buscarFirebase(q, setProductos);
-        } else {
-            buscarFirebase(productsCollection, setProductos);
+            q = query(productsCollection, where('categorias', 'array-contains',categoryId));
+        } else if (filter === 'highlights'){
+            q = query(productsCollection, where('destacado', '==', true));
+            setTitulo('Productos destacados');
+        } else if (filter === 'sales'){
+            q = query(productsCollection, where('oferta', '==', true));
+            setTitulo('Productos en oferta');
+        }else {
+            q = productsCollection
         }
-        setSpinner(false);
-    },[categoryId]);
+        buscarFirebase(q, setProductos, setSpinner, isActive);
+
+        return () => {
+            isActive = false;
+        };
+    },[categoryId, filter]);
 
     return (
         <main>
-            <h2>{categoryId ? categoryId : 'Todos los productos'}</h2>
+            <h2 className={s.tituloCategoria}>{categoryId ? categoryId : filter ? titulo : 'Todos los productos'}</h2>
             <div className={s.contenedorProductos}>
                 <ItemList productos={productos} spinner={spinner}/>
             </div>
